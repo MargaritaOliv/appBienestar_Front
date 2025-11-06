@@ -10,6 +10,8 @@ import 'package:bienesta_integral/feactures/home/presentation/pages/event_detail
 import 'package:bienesta_integral/feactures/home/presentation/pages/edit_profile_screen.dart';
 import 'package:bienesta_integral/feactures/home/presentation/pages/my_events_screen.dart';
 import 'package:bienesta_integral/feactures/home/presentation/pages/settings_screen.dart';
+import 'package:bienesta_integral/feactures/home/presentation/pages/home_screen_admin.dart';
+
 
 
 class AppRouter {
@@ -46,6 +48,9 @@ class AppRouter {
 
       case AppRoutes.myEvents:
         return MaterialPageRoute(builder: (_) => const MyEventsScreen());
+
+      case AppRoutes.homeAdmin:
+        return MaterialPageRoute(builder: (_) => const HomeScreenAdmin());
 
     // case AppRoutes.profile:
     //   return MaterialPageRoute(builder: (_) => const ProfileScreen());

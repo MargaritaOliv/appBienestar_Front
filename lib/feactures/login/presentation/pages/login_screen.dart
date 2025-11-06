@@ -33,6 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
         _isLoading = true;
       });
 
+      // Obtener el correo ingresado
+      String email = _emailController.text.trim().toLowerCase();
 
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
@@ -40,22 +42,34 @@ class _LoginScreenState extends State<LoginScreen> {
             _isLoading = false;
           });
 
-          Navigator.pushReplacementNamed(context, AppRoutes.home);
+          // Detectar si es admin por el correo
+          if (email == 'admin@bienestar.com' || email.contains('admin')) {
+            // Redirigir al Home Admin
+            Navigator.pushReplacementNamed(context, AppRoutes.homeAdmin);
 
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Bienvenido Admin'),
+                backgroundColor: Color(0xFF8B7355),
+              ),
+            );
+          } else {
+            // Redirigir al Home Voluntario
+            Navigator.pushReplacementNamed(context, AppRoutes.home);
 
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Login exitoso'),
-              backgroundColor: Color(0xFF8B7355),
-            ),
-          );
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Login exitoso'),
+                backgroundColor: Color(0xFF8B7355),
+              ),
+            );
+          }
         }
       });
     }
   }
 
   void _handleForgotPassword() {
-
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Función de recuperar contraseña próximamente'),
@@ -64,7 +78,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _handleRegister() {
-
     Navigator.pushNamed(context, AppRoutes.register);
   }
 
@@ -83,7 +96,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SizedBox(height: 40),
 
-
                   const LoginHeader(
                     title: 'Bienvenido',
                     subtitle: 'Inicia sesión para continuar',
@@ -91,13 +103,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 40),
 
-
                   const LogoAvatar(
                     size: 120,
                   ),
 
                   const SizedBox(height: 40),
-
 
                   CustomTextField(
                     label: 'Correo electrónico',
@@ -117,7 +127,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 20),
 
-
                   CustomTextField(
                     label: 'Contraseña',
                     icon: Icons.lock_outline,
@@ -136,13 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 12),
 
-
                   ForgotPasswordLink(
                     onTap: _handleForgotPassword,
                   ),
 
                   const SizedBox(height: 24),
-
 
                   CustomButton(
                     text: 'Iniciar Sesión',
@@ -151,7 +158,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   const SizedBox(height: 24),
-
 
                   RegisterLink(
                     onTap: _handleRegister,

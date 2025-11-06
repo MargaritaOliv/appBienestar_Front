@@ -9,6 +9,7 @@ class AppRoutes {
 
 
   static const String home = '/home';
+  static const String homeAdmin = '/home-admin';
   static const String profile = '/profile';
   static const String eventDetail = '/event-detail';
   static const String editProfile = '/edit-profile';
