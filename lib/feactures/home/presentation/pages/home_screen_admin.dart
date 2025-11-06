@@ -3,6 +3,7 @@ import '../widgets/admin_header.dart';
 import '../widgets/kitchen_info_card.dart';
 import '../widgets/event_card_admin.dart';
 import '../widgets/admin_bottom_bar.dart';
+import 'package:bienesta_integral/core/route/app_routes.dart';
 
 class HomeScreenAdmin extends StatefulWidget {
   const HomeScreenAdmin({super.key});
@@ -31,14 +32,11 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
     );
   }
 
+  // --- Función modificada aquí ---
   void _handleManageUsers() {
     // TODO: Navegar a la pantalla de gestionar usuarios
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Gestionar usuarios - Próximamente'),
-        backgroundColor: Color(0xFF8B7355),
-      ),
-    );
+    // Reemplazando el SnackBar con la navegación
+    Navigator.pushNamed(context, AppRoutes.manageVolunteers);
   }
 
   void _handleAddProduct() {

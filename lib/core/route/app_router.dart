@@ -11,6 +11,8 @@ import 'package:bienesta_integral/feactures/home/presentation/pages/edit_profile
 import 'package:bienesta_integral/feactures/home/presentation/pages/my_events_screen.dart';
 import 'package:bienesta_integral/feactures/home/presentation/pages/settings_screen.dart';
 import 'package:bienesta_integral/feactures/home/presentation/pages/home_screen_admin.dart';
+import 'package:bienesta_integral/feactures/admin/pages/manage_volunteers_screen.dart';
+
 
 
 
@@ -30,6 +32,9 @@ class AppRouter {
       case AppRoutes.registerStep3:
         return MaterialPageRoute(builder: (_) => const RegisterStep3Screen());
 
+
+      case AppRoutes.manageVolunteers:
+        return MaterialPageRoute(builder: (_) => const ManageVolunteersScreen());
 
      case AppRoutes.home:
        return MaterialPageRoute(builder: (_) => const HomeScreen());
