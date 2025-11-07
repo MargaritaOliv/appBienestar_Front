@@ -23,30 +23,19 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
   };
 
   void _handleLaunchEvent() {
-    // TODO: Navegar a la pantalla de lanzar evento
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Lanzar evento - Próximamente'),
-        backgroundColor: Color(0xFF8B7355),
-      ),
-    );
+    // Navega a la pantalla de lanzar evento.
+    Navigator.pushNamed(context, AppRoutes.launchEvent);
   }
 
-  // --- Función modificada aquí ---
   void _handleManageUsers() {
-    // TODO: Navegar a la pantalla de gestionar usuarios
-    // Reemplazando el SnackBar con la navegación
+    // Navega a la pantalla de gestionar usuarios.
     Navigator.pushNamed(context, AppRoutes.manageVolunteers);
   }
 
+  // --- FUNCIÓN ACTUALIZADA AQUÍ ---
   void _handleAddProduct() {
-    // TODO: Navegar a la pantalla de ingresar producto
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Ingresar producto - Próximamente'),
-        backgroundColor: Color(0xFF8B7355),
-      ),
-    );
+    // Se reemplaza el SnackBar para navegar a la pantalla de agregar producto.
+    Navigator.pushNamed(context, AppRoutes.addProduct);
   }
 
   @override

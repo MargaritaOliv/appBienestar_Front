@@ -1,3 +1,5 @@
+// core/route/app_router.dart
+
 import 'package:flutter/material.dart';
 import 'package:bienesta_integral/core/route/app_routes.dart';
 import 'package:bienesta_integral/feactures/login/presentation/pages/login_screen.dart';
@@ -14,7 +16,8 @@ import 'package:bienesta_integral/feactures/home/presentation/pages/home_screen_
 import 'package:bienesta_integral/feactures/admin/pages/manage_volunteers_screen.dart';
 import 'package:bienesta_integral/feactures/admin/pages/launch_event_screen.dart';
 
-
+// --- IMPORTACIÓN AÑADIDA ---
+import 'package:bienesta_integral/feactures/admin/pages/add_product_screen.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -32,16 +35,18 @@ class AppRouter {
       case AppRoutes.registerStep3:
         return MaterialPageRoute(builder: (_) => const RegisterStep3Screen());
 
-
       case AppRoutes.launchEvent:
         return MaterialPageRoute(builder: (_) => const LaunchEventScreen());
 
+    // --- CASE AÑADIDO ---
+      case AppRoutes.addProduct:
+        return MaterialPageRoute(builder: (_) => const AddProductScreen());
 
       case AppRoutes.manageVolunteers:
         return MaterialPageRoute(builder: (_) => const ManageVolunteersScreen());
 
-     case AppRoutes.home:
-       return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case AppRoutes.home:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case AppRoutes.eventDetails:
         return MaterialPageRoute(builder: (_) => const EventDetailsScreen());
@@ -60,18 +65,6 @@ class AppRouter {
 
       case AppRoutes.homeAdmin:
         return MaterialPageRoute(builder: (_) => const HomeScreenAdmin());
-
-    // case AppRoutes.profile:
-    //   return MaterialPageRoute(builder: (_) => const ProfileScreen());
-
-    // case AppRoutes.wellness:
-    //   return MaterialPageRoute(builder: (_) => const WellnessScreen());
-
-    // case AppRoutes.appointments:
-    //   return MaterialPageRoute(builder: (_) => const AppointmentsScreen());
-
-    // case AppRoutes.settings:
-    //   return MaterialPageRoute(builder: (_) => const SettingsScreen());
 
       default:
         return MaterialPageRoute(
