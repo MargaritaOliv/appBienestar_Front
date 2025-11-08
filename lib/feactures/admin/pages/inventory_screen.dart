@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/inventory_item_card.dart'; // Widget para cada item del inventario
-import './register_purchase_screen.dart';      // La nueva pantalla que acabamos de crear
+import './register_purchase_screen.dart';      // Pantalla para registrar una compra
+import './register_donation_screen.dart';      // Pantalla para registrar una donación
 
 class InventoryScreen extends StatelessWidget {
   const InventoryScreen({super.key});
@@ -87,7 +88,7 @@ class InventoryScreen extends StatelessWidget {
 
           // Botones de acción en la parte inferior
           Padding(
-            padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 32.0), // Más padding inferior
+            padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 32.0),
             child: Column(
               children: [
                 Row(
@@ -95,28 +96,32 @@ class InventoryScreen extends StatelessWidget {
                   children: [
                     // Botón que navega a la pantalla de registrar compra
                     _ActionButton(
-                        label: 'Registrar compra',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const RegisterPurchaseScreen()),
-                          );
-                        }
+                      label: 'Registrar compra',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const RegisterPurchaseScreen()),
+                        );
+                      },
                     ),
+                    // Botón que navega a la pantalla de registrar donación
                     _ActionButton(
-                        label: 'Registrar donación',
-                        onPressed: () {
-                          // TODO: Navegar a la pantalla de registrar donación
-                        }
+                      label: 'Registrar donación',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const RegisterDonationScreen()),
+                        );
+                      },
                     ),
                   ],
                 ),
                 const SizedBox(height: 12),
                 _ActionButton(
-                    label: 'Agregar producto',
-                    onPressed: () {
-                      // TODO: Navegar a la pantalla de agregar producto al inventario
-                    }
+                  label: 'Agregar producto',
+                  onPressed: () {
+                    // TODO: Navegar a la pantalla de agregar producto al inventario
+                  },
                 ),
               ],
             ),
