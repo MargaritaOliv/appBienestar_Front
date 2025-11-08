@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Asegúrate de que las rutas a tus pantallas sean las correctas según tu estructura de carpetas
 import 'package:bienesta_integral/feactures/admin/pages/inventory_screen.dart';
 import 'package:bienesta_integral/feactures/admin/pages/account_status_screen.dart';
+import 'package:bienesta_integral/feactures/admin/pages/chef_ia_screen.dart';
 
 class AdminDrawer extends StatelessWidget {
   const AdminDrawer({super.key});
@@ -64,7 +65,6 @@ class AdminDrawer extends StatelessWidget {
             title: 'Estado de cuenta',
             onTap: () {
               Navigator.pop(context); // Cierra el Drawer
-              // Navega a la pantalla de Estado de Cuenta
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const AccountStatusScreen()),
@@ -74,7 +74,12 @@ class AdminDrawer extends StatelessWidget {
           _buildDrawerItem(
             title: 'Chat bot',
             onTap: () {
-              // TODO: Navegar a la pantalla del Chat bot
+              Navigator.pop(context); // Cierra el Drawer
+              // Navega a la pantalla del Chef IA
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChefIaScreen()),
+              );
             },
           ),
           _buildDrawerItem(
