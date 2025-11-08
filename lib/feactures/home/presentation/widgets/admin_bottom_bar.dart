@@ -29,23 +29,18 @@ class AdminBottomBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          // Lanzar evento
           _AdminBottomBarItem(
-            icon: Icons.newspaper,
+            icon: Icons.monetization_on_outlined, // Icono actualizado
             label: 'Lanzar\nevento',
             onTap: onLaunchEvent,
           ),
-
-          // Gestionar usuarios
           _AdminBottomBarItem(
-            icon: Icons.manage_accounts,
+            icon: Icons.group_outlined, // Icono actualizado
             label: 'Gestionar\nusuarios',
             onTap: onManageUsers,
           ),
-
-          // Ingresar producto
           _AdminBottomBarItem(
-            icon: Icons.note_add,
+            icon: Icons.receipt_long_outlined, // Icono actualizado
             label: 'Ingresar\nproducto',
             onTap: onAddProduct,
           ),
@@ -55,6 +50,7 @@ class AdminBottomBar extends StatelessWidget {
   }
 }
 
+// _AdminBottomBarItem (sin cambios, pero se incluye por completitud)
 class _AdminBottomBarItem extends StatelessWidget {
   final IconData icon;
   final String label;

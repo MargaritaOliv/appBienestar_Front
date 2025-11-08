@@ -22,7 +22,7 @@ class EventCardAdmin extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF8B7355),
+        color: const Color(0xFFF9E28A), // Color de fondo amarillo
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -35,7 +35,6 @@ class EventCardAdmin extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header con título y contador
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -44,16 +43,13 @@ class EventCardAdmin extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Color(0xFF2C2C2C), // Texto oscuro
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.black.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -61,28 +57,22 @@ class EventCardAdmin extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: Color(0xFF2C2C2C), // Texto oscuro
                   ),
                 ),
               ),
             ],
           ),
-
           const SizedBox(height: 12),
-
-          // Descripción
           Text(
             'Descripción: $description',
             style: const TextStyle(
               fontSize: 14,
-              color: Colors.white,
+              color: Color(0xFF2C2C2C), // Texto oscuro
               height: 1.5,
             ),
           ),
-
           const SizedBox(height: 12),
-
-          // Fecha
           Align(
             alignment: Alignment.centerRight,
             child: Text(
@@ -90,7 +80,7 @@ class EventCardAdmin extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Color(0xFF2C2C2C), // Texto oscuro
               ),
             ),
           ),

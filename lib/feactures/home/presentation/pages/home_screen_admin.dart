@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/admin_header.dart';
+import '../widgets/admin_drawer.dart'; // Importa el nuevo Drawer
 import '../widgets/kitchen_info_card.dart';
 import '../widgets/event_card_admin.dart';
 import '../widgets/admin_bottom_bar.dart';
@@ -13,7 +13,7 @@ class HomeScreenAdmin extends StatefulWidget {
 }
 
 class _HomeScreenAdminState extends State<HomeScreenAdmin> {
-  // Datos de ejemplo - después conectar con tu backend
+  // Datos de ejemplo
   final Map<String, String> _schedule = {
     'Lunes': '5:30 a.m.–5 p.m.',
     'martes': '5:30 a.m.–5 p.m.',
@@ -23,66 +23,68 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
   };
 
   void _handleLaunchEvent() {
-    // Navega a la pantalla de lanzar evento.
     Navigator.pushNamed(context, AppRoutes.launchEvent);
   }
 
   void _handleManageUsers() {
-    // Navega a la pantalla de gestionar usuarios.
     Navigator.pushNamed(context, AppRoutes.manageVolunteers);
   }
 
-  // --- FUNCIÓN ACTUALIZADA AQUÍ ---
   void _handleAddProduct() {
-    // Se reemplaza el SnackBar para navegar a la pantalla de agregar producto.
     Navigator.pushNamed(context, AppRoutes.addProduct);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
-      body: Column(
-        children: [
-          // Header sin SafeArea extra
-          const AdminHeader(),
-
-          // Contenido scrollable
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-
-                  // Card de información de cocina
-                  KitchenInfoCard(
-                    title: 'Cocina integral',
-                    subtitle: 'Calzada al sumidero Tuxtla Gtz.',
-                    ownerName: 'Irving Champo',
-                    imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800',
-                    schedule: _schedule,
-                  ),
-
-                  const SizedBox(height: 8),
-
-                  // Card de evento
-                  const EventCardAdmin(
-                    eventNumber: '1',
-                    description: 'Evento de donación de alimentos para familias necesitadas. Se requiere apoyo de voluntarios para la distribución.',
-                    date: '24/12/2025',
-                    currentCount: '0',
-                    maxCount: '20',
-                  ),
-
-                  const SizedBox(height: 100), // Espacio para el bottom bar
-                ],
-              ),
-            ),
+      // Nuevo AppBar que coincide con el diseño amarillo
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF9E28A), // Color amarillo
+        elevation: 0,
+        title: const Text(
+          'Bienestar integral',
+          style: TextStyle(
+            color: Color(0xFF2C2C2C), // Texto oscuro
+            fontWeight: FontWeight.w600,
           ),
-        ],
+        ),
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: Color(0xFF2C2C2C)), // Icono de menú oscuro
       ),
 
-      // Bottom navigation bar
+      // Nuevo Drawer (menú lateral)
+      drawer: const AdminDrawer(),
+
+      backgroundColor: Colors.white, // Fondo blanco para el contenido
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 8),
+
+            // Card de información de cocina (sin cambios en su lógica)
+            KitchenInfoCard(
+              title: 'Cocina integral',
+              subtitle: 'Calzada al sumidero Tuxtla Gtz.',
+              ownerName: 'Irving Champo',
+              imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800',
+              schedule: _schedule,
+            ),
+
+            const SizedBox(height: 8),
+
+            // Card de evento (actualizada con el nuevo color)
+            const EventCardAdmin(
+              eventNumber: '1',
+              description: '--------------------------------------------------',
+              date: '24/12/2025',
+              currentCount: '0',
+              maxCount: '20',
+            ),
+          ],
+        ),
+      ),
+
+      // Bottom navigation bar (con iconos actualizados)
       bottomNavigationBar: AdminBottomBar(
         onLaunchEvent: _handleLaunchEvent,
         onManageUsers: _handleManageUsers,
