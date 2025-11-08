@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/inventory_item_card.dart'; // Asegúrate que la ruta sea correcta
+import '../widgets/inventory_item_card.dart'; // Widget para cada item del inventario
+import './register_purchase_screen.dart';      // La nueva pantalla que acabamos de crear
 
 class InventoryScreen extends StatelessWidget {
   const InventoryScreen({super.key});
@@ -33,14 +34,14 @@ class InventoryScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Header de la sección "Inventario"
+          // Header de la sección "Inventario" con botón de regreso
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Row(
               children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back, color: Color(0xFF2C2C2C), size: 28),
-                  onPressed: () => Navigator.of(context).pop(), // Para regresar
+                  onPressed: () => Navigator.of(context).pop(), // Acción para regresar
                 ),
                 const SizedBox(width: 8),
                 const Text(
@@ -55,7 +56,7 @@ class InventoryScreen extends StatelessWidget {
             ),
           ),
 
-          // Lista de productos
+          // Lista de productos del inventario
           Expanded(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -84,20 +85,39 @@ class InventoryScreen extends StatelessWidget {
             ),
           ),
 
-          // Botones de acción
+          // Botones de acción en la parte inferior
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 32.0), // Más padding inferior
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _ActionButton(label: 'Registrar compra', onPressed: () {}),
-                    _ActionButton(label: 'Registrar donación', onPressed: () {}),
+                    // Botón que navega a la pantalla de registrar compra
+                    _ActionButton(
+                        label: 'Registrar compra',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const RegisterPurchaseScreen()),
+                          );
+                        }
+                    ),
+                    _ActionButton(
+                        label: 'Registrar donación',
+                        onPressed: () {
+                          // TODO: Navegar a la pantalla de registrar donación
+                        }
+                    ),
                   ],
                 ),
                 const SizedBox(height: 12),
-                _ActionButton(label: 'Agregar producto', onPressed: () {}),
+                _ActionButton(
+                    label: 'Agregar producto',
+                    onPressed: () {
+                      // TODO: Navegar a la pantalla de agregar producto al inventario
+                    }
+                ),
               ],
             ),
           ),
@@ -107,7 +127,7 @@ class InventoryScreen extends StatelessWidget {
   }
 }
 
-// Widget privado para los botones de acción
+/// Widget helper privado para estilizar los botones de acción de esta pantalla.
 class _ActionButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
